@@ -2939,7 +2939,6 @@ MonoBehaviour:
   goodFoodTemplate: {fileID: 11400000, guid: 8eab39636bf949a45a8cedbf68d0aeb6, type: 2}
   badFoodTemplate: {fileID: 11400000, guid: 59b45b896b0ef0440b1b24c35e9ea2a8, type: 2}
   spawnInterval: 2
-  badIsCanIncMoveDelay: 0
   poolFood: {fileID: 12103766}
 --- !u!4 &1192783147
 Transform:
@@ -3754,8 +3753,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12.69
-  m_fontSizeBase: 12.69
+  m_fontSize: 16.05
+  m_fontSizeBase: 16.05
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4095,8 +4094,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bodyAmount: 3
-  verticalPlacement: 0
-  moveDelay: 0.5
+  verticalPlacement: 1
+  moveDelay: 0.433
 --- !u!1 &1732368661
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,24 +6,32 @@ using Zenject;
 public class SnakeManager : MonoBehaviour
 {
     [Inject] private SnakeFactory _snakeFactory;
-    [SerializeField] [Range(1, 10)] private int bodyAmount = 3;
+    [SerializeField] [Range(1, 7)] private int bodyAmount = 3;
     [SerializeField] private bool verticalPlacement;
     [SerializeField] [Range(0.3f, 1f)] private float moveDelay = 1f;
+    private bool _isInitialized;
 
     private void Start()
     {
         _snakeFactory.SetPlacement(verticalPlacement);
         _snakeFactory.SetDelay(moveDelay);
+        
+        Debug.Log("SnakeManager: Snake Creation...");
 
-        Debug.Log("SnakeCreationTester: Testing Snake Creation...");
+        Vector2 initialPositionVertical = new Vector2(0.5f, 3.5f);
+        Vector2 initialPositionHorizontal = new Vector2(-1.5f, 0.5f);
 
-        Vector2 initialPosition = new Vector2(0.5f, 0.5f);
-
-        Snake snake = _snakeFactory.Create(initialPosition, bodyAmount);
+        Snake snake; 
+        
+        if (verticalPlacement)
+            snake = _snakeFactory.Create(initialPositionVertical, bodyAmount);
+        else
+            snake = _snakeFactory.Create(initialPositionHorizontal, bodyAmount);
+        
 
         if (snake != null)
-            Debug.Log("SnakeCreationTester: Snake created successfully!");
+            Debug.Log("SnakeManager: Snake created successfully!");
         else
-            Debug.LogError("SnakeCreationTester: Snake creation failed.");
+            Debug.LogError("SnakeManager: Snake creation failed.");
     }
 }

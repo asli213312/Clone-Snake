@@ -8,8 +8,7 @@ public class Timer : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _timerText;
     private ISnakeMovement _moverSnake;
-    private ISpawner _spawner;
-    
+
     private float _timer;
 
     void Update()
