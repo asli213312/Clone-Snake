@@ -25,7 +25,7 @@ public class SnakeBuilder : MonoBehaviour
     {
         Debug.Log("SnakeBuilder: Creating snake...");
         
-        _snakeTemplate = new GameObject("Snake").AddComponent<Snake>(); // Создаем объект Snake и добавляем ему компонент
+        _snakeTemplate = new GameObject("Snake").AddComponent<Snake>();
 
         BuildSnake(initialHeadPosition, bodyAmount);
 
@@ -63,20 +63,17 @@ public class SnakeBuilder : MonoBehaviour
     {
         GameObject newHeadObject = AddSnakeSegment(initialPosition, _prefabProvider.HeadPrefab, true, false);
         newHeadObject.name = "Head";
-        _headTransform = newHeadObject.transform; // Сохраняем ссылку на голову
+        _headTransform = newHeadObject.transform;
     }
 
     public void RemoveBodySegment(GameObject bodySegment)
     {
-        // Найти индекс блока тела, который нужно удалить
         int index = _bodyParts.FindIndex(segment => segment.gameObject == bodySegment);
 
         if (index >= 0)
         {
-            // Уничтожить игровой объект блока тела
             Destroy(bodySegment);
-
-            // Удалить элемент из списка _bodySegments
+            
             _bodyParts.RemoveAt(index);
         }
         else
@@ -119,13 +116,13 @@ public class SnakeBuilder : MonoBehaviour
 
         if (newObject == null)
         {
-            Debug.LogError("Не удалось создать объект из префаба " + prefab.name);
+            Debug.LogError("Cannot create object using prefab " + prefab.name);
         }
 
         Body newBody = newObject.GetComponent<Body>();
         if (newBody == null)
         {
-            Debug.LogError("Объект создан из префаба " + prefab.name + ", но не содержит компонента Body.");
+            Debug.LogError("Object is created from prefab " + prefab.name + ", but not contain Body component.");
         }
 
         if (isHeadSegment)

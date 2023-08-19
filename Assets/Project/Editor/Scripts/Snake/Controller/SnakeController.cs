@@ -74,8 +74,8 @@ public class SnakeController : MonoBehaviour, ISnakeController, ISnakeInput, IFo
          GameObject lastBodySegment = bodies[^2].gameObject;
          Vector2 lastBodyPosition = bodies[^2].GetPosition();
 
-         bodies[^1].MoveTo(lastBodyPosition);
          snakeBuilder.RemoveBodySegment(lastBodySegment);
+         bodies[^1].MoveTo(lastBodyPosition);
 
          Debug.Log("lastBodySegment is: " + lastBodySegment, lastBodySegment.gameObject);
       }
@@ -129,11 +129,7 @@ public class SnakeController : MonoBehaviour, ISnakeController, ISnakeInput, IFo
          return;
       }
       Debug.Log("snakeBuilder in SnakeController is found! " + snakeBuilder);
-      
-      // Получаем индексы хвоста и нового блока
-      int newBodyIndexx = bodies.Count - 1;
-      
-      
+
       Vector2 lastBodyPosition = bodies[^2].GetPosition();
 
       if (bodies.Count >= 2)
@@ -145,13 +141,9 @@ public class SnakeController : MonoBehaviour, ISnakeController, ISnakeInput, IFo
       
       Debug.Log("tail: " + bodies[^2], bodies[^2].gameObject);
       Debug.Log("Body: " + bodies[^1], bodies[^1].gameObject);
+
+      Vector2 newBodyPosition = CalculateNewBodyPosition(lastBodyPosition, GetCurrentDirection());
       
-      // Сохраняем позиции хвоста и нового блока
-      
-      
-      Vector2 newBodyPosition = CalculateNewBodyPosition(lastBodyPosition, GetCurrentDirection()); // Вычисляем позицию нового блока
-      
-      // Меняем местами элементы списка
       //Debug.Break();
       (bodies[^2], bodies[currentTailIndex]) = (bodies[currentTailIndex], bodies[^2]);
       Debug.Log("newTail: " + bodies[currentTailIndex], bodies[currentTailIndex].gameObject);
@@ -261,12 +253,10 @@ public class SnakeController : MonoBehaviour, ISnakeController, ISnakeInput, IFo
 
          bodyPositions[i].MoveTo(currentPosition);
       }
-
-      // Вычисляем новую позицию для головы и хвоста
+      
       Vector2 newHeadPosition = bodyPositions[0].GetPosition() + direction;
       Vector2 newTailPosition = bodyPositions[^1].GetPosition();
-
-      // Двигаем голову и хвост
+      
       bodyPositions[0].MoveTo(newHeadPosition);
       bodyPositions[^1].MoveTo(newTailPosition);
 
@@ -326,15 +316,6 @@ public class SnakeController : MonoBehaviour, ISnakeController, ISnakeInput, IFo
       _bodyParts = bodyParts;
       _headTransform = headTransform;
       _tailTransform = tailTransform;
-   }
-   
-   public KeyboardMover GetKeyboardMover()
-   {
-      if (_mover is KeyboardMover keyboardMover)
-      {
-         return keyboardMover;
-      }
-      return null;
    }
    public Vector2 GetCurrentDirection() => _currentDirection;
 

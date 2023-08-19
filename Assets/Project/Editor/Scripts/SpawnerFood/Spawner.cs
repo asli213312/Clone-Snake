@@ -10,9 +10,7 @@ public class Spawner : MonoBehaviour, ISpawner
 {
     [SerializeField] private FoodTemplate goodFoodTemplate;
     [SerializeField] private FoodTemplate badFoodTemplate;
-    //[SerializeField] private int maxFoodCount;
     [SerializeField] private float spawnInterval;
-    [SerializeField] private bool badIsCanIncMoveDelay;
     [SerializeField] private PoolFood poolFood;
 
     private float _timeToSpawn;

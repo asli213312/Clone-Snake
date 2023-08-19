@@ -34,7 +34,6 @@ public class SnakeFactory : PlaceholderFactory<Vector2, int, Snake>, IFactory
     
     private ISnakeCollisionHandler CreateCollisionHandler(Transform headTransform, Transform tailTransform, List<Body> bodyPositions)
     {
-        // Создаем экземпляр SnakeCollisionHandler и внедряем зависимости
         ISnakeCollisionHandler collisionHandler = new SnakeCollisionHandler();
         collisionHandler.SetDependencies(bodyPositions, headTransform, tailTransform);
 
@@ -89,39 +88,6 @@ public class SnakeFactory : PlaceholderFactory<Vector2, int, Snake>, IFactory
     {
         _prefabProvider.MoveDelay = moveDelay;
     }
-}
-
-public class ComponentProvider : IComponentProvider
-{
-    private readonly DiContainer _container; 
-    //private readonly IFactoryProvider _prefabProvider;
-
-    /*public ComponentProvider(DiContainer container)
-    {
-        _container = container;
-    }
-
-    public SnakeBuilder CreateSnakeBuilder()
-    {
-        return _container.InstantiatePrefabForComponent<SnakeBuilder>(_prefabProvider.SnakeBuilder);
-    }
-
-    public SnakeController CreateSnakeController()
-    {
-        return _container.InstantiatePrefabForComponent<SnakeController>(_prefabProvider.SnakeController);
-    }
-
-    public KeyboardMover CreateKeyboardMover()
-    {
-        return _container.InstantiatePrefabForComponent<KeyboardMover>(_prefabProvider.KeyboardMover);
-    }*/
-}
-
-public interface IComponentProvider
-{
-    /*SnakeBuilder CreateSnakeBuilder();
-    SnakeController CreateSnakeController();
-    KeyboardMover CreateKeyboardMover(); */   
 }
 
 

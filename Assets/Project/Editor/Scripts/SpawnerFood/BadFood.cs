@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class BadFood : MonoBehaviour
 {
-    private Food _foodComponent; // Ссылка на родительский компонент Food
+    private Food _foodComponent;
 
     private void Awake()
     {
-        _foodComponent = GetComponent<Food>(); // Получаем ссылку на родительский компонент
+        _foodComponent = GetComponent<Food>();
     }
 
     private void OnFoodEaten()

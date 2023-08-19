@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class KeyboardMover : MonoBehaviour, ISnakeMovement 
 {
-        public event Action<Body> BodyAdded;
-        public event Action<Body> BodyRemoved;
         private Vector2 _currentDirection;
         private Transform _headTransform;
         private Transform _tailTransform;
@@ -15,12 +13,6 @@ public class KeyboardMover : MonoBehaviour, ISnakeMovement
         private ISnakeMovement _snakeMovement;
         private SnakeController _snakeController;
 
-        // public KeyboardMover(SnakeController controller)
-        // {
-        //     _snakeController = controller;
-        //     Debug.Log("KeyboardMover created with SnakeController: " + _snakeController);
-        // }
-        
         public float GetMoveDelay() => _snakeController.GetMoveDelay();
         public Vector2 GetCurrentDirection() => _snakeController.GetCurrentDirection();
         

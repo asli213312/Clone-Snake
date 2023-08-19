@@ -32,18 +32,13 @@ public class Body : MonoBehaviour
     
     public void CopyFrom(Body source)
     {
-        // Копируем спрайт (Renderer) и другие компоненты
         SpriteRenderer sourceRenderer = source.GetComponent<SpriteRenderer>();
         if (sourceRenderer != null)
         {
             SpriteRenderer newRenderer = gameObject.AddComponent<SpriteRenderer>();
             newRenderer.sprite = sourceRenderer.sprite;
             newRenderer.color = sourceRenderer.color;
-            // Копируйте другие параметры спрайта по аналогии
         }
-
-        // Копируем другие компоненты и параметры Body
-        // ...
     }
 
     public Vector2 GetPosition() => _position;

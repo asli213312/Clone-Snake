@@ -57,7 +57,7 @@ public class SnakeCollisionHandler : MonoBehaviour, ISnakeCollisionHandler
                 bodyPart.transform.position.y <= -MAX_BOUNDS_Y || bodyPart.transform.position.y >= MAX_BOUNDS_Y)
             {
                 SnakeCrash?.Invoke();
-                snakeTemplate.SetActive(false); // Отключить всю змею
+                snakeTemplate.SetActive(false);
                 break;
             }
         }

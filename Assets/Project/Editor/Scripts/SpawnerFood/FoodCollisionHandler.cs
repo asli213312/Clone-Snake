@@ -38,7 +38,6 @@ public class FoodCollisionHandler : MonoBehaviour
         //     GameObject newBodyObject = Instantiate(bodies[1].gameObject, newPosition, Quaternion.identity);
         //     Body newBodyComponent = newBodyObject.GetComponent<Body>();
         //
-        //     // Вы можете также копировать другие компоненты, если это необходимо
         //     newBodyComponent.CopyFrom(bodies[1]);
         //
         //     food.gameObject.SetActive(false);

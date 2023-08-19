@@ -45,8 +45,8 @@ public class ScoreAndHighScore : MonoBehaviour
     private void HandleFoodScoreChanged(int newScore)
     {
         _score += newScore;
-        scoreText.text = _score.ToString();
-        
+        scoreText.text = Mathf.Max(_score, 0).ToString();
+
         CheckHighScore(_score);
         UpdateHighScore();
     }
@@ -55,7 +55,7 @@ public class ScoreAndHighScore : MonoBehaviour
     {
         highScoreText.text = persistentData.highScore.ToString();
     }
-    
+
     public void CheckHighScore(int newScore)
     {
         if (newScore > persistentData.highScore)

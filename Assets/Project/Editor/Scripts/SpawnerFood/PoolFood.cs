@@ -24,7 +24,7 @@ public class PoolFood : MonoBehaviour
     private Food InstantiateFood(FoodTemplate goodFoodTemplate, FoodTemplate badFoodTemplate, Vector3 position)
     {
         float randomValue = Random.Range(0f, 1f);
-        IsBadFood = randomValue <= 0.7f; // 60% вероятность выбора плохой еды
+        IsBadFood = randomValue <= 0.7f;
 
         List<Food> selectedFoodPrefabs = IsBadFood ? badFoodTemplate.foodList : goodFoodTemplate.foodList;
 
