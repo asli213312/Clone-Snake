@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2ce782b60d715143bd2cb7afc54ee9c, type: 3}
+  m_Name: Bad FoodTemplate
+  m_EditorClassIdentifier: 
+  foodList:
+  - {fileID: 824989215133483689, guid: f740d0ad1fc588a48b024021e1193cb8, type: 3}
