@@ -2936,10 +2936,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec75e1e455f830e419ca5f2f7f26ac7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poolFood: {fileID: 12103766}
   goodFoodTemplate: {fileID: 11400000, guid: 8eab39636bf949a45a8cedbf68d0aeb6, type: 2}
   badFoodTemplate: {fileID: 11400000, guid: 59b45b896b0ef0440b1b24c35e9ea2a8, type: 2}
   spawnInterval: 2
-  poolFood: {fileID: 12103766}
+  isOriginalGame: 1
 --- !u!4 &1192783147
 Transform:
   m_ObjectHideFlags: 0
@@ -4094,7 +4095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bodyAmount: 3
-  verticalPlacement: 1
+  verticalPlacement: 0
   moveDelay: 0.433
 --- !u!1 &1732368661
 GameObject:

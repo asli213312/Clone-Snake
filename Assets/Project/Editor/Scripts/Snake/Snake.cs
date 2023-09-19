@@ -26,6 +26,7 @@ public class Snake : MonoBehaviour
     public void SetCollisionHandler(ISnakeCollisionHandler collisionHandler)
     {
         _collisionHandler = collisionHandler;
+        Debug.Log("Collision handler set to: " + collisionHandler);
     }
 
     private void LateUpdate()

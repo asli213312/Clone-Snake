@@ -8,10 +8,14 @@ using Random = UnityEngine.Random;
 
 public class Spawner : MonoBehaviour, ISpawner
 {
+    [SerializeField] private PoolFood poolFood;
+    [Header("Options")]
     [SerializeField] private FoodTemplate goodFoodTemplate;
     [SerializeField] private FoodTemplate badFoodTemplate;
     [SerializeField] private float spawnInterval;
-    [SerializeField] private PoolFood poolFood;
+    
+    [Tooltip("True if the game is the original snake game, false if it's the mod")]
+    [SerializeField] private bool isOriginalGame;
 
     private float _timeToSpawn;
     private const int MAX_POSITION_X = 6;
@@ -58,11 +62,13 @@ public class Spawner : MonoBehaviour, ISpawner
         Vector2 spawnPosition = GetRandomPosition();
 
         // Create food with dependencies
-        Food newFood = _foodFactory.CreateFood(spawnPosition);
+        
+        Food newFood = _foodFactory.CreateFood(spawnPosition, isOriginalGame);
+
         if (newFood != null)
         {
             newFood.Initialize(snakeController, factoryProvider, poolFood);
-
+            
             if (newFood.IsBadFood == false)
             {
                 _currentGoodFood = newFood;
