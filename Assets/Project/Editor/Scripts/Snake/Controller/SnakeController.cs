@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Codice.CM.WorkspaceServer.Tree.GameUI.Checkin.Updater;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
 using UnityEngine.Events;

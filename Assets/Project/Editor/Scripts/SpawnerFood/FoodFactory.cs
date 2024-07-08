@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Codice.CM.Common;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using Zenject;
@@ -11,8 +10,6 @@ public class FoodFactory : PlaceholderFactory<Vector2>
     private bool _spawnGoodFood;
     private bool _isOriginalGame;
 
-    private Food _currentFood;
-
     public Food CreateFood(Vector2 spawnPosition, bool isOriginalGame)
     {
         _isOriginalGame = isOriginalGame;
@@ -22,12 +19,10 @@ public class FoodFactory : PlaceholderFactory<Vector2>
         if (!_isOriginalGame)
         {
             newFood = GetNextSuitableFoodFromPool(spawnPosition);
-            _currentFood = newFood;
         }
         else if (_isOriginalGame && !_spawnGoodFood)
         {
             newFood = GetNextGoodFood(spawnPosition);
-            _currentFood = newFood;
             _spawnGoodFood = true;
         }
 

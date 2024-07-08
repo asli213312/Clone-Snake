@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Codice.CM.WorkspaceServer.Tree.GameUI.Checkin.Updater;
 using UnityEngine;
 
 public class BadFood : MonoBehaviour
